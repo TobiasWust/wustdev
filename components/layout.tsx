@@ -4,17 +4,21 @@ import {
   ImBriefcase,
   ImCalendar,
   ImDownload,
-  ImEnvelop, ImFacebook2, ImLinkedin, ImLocation2, ImMobile, ImProfile, ImUser,
+  ImEnvelop, ImFacebook2, ImGithub, ImLinkedin, ImLocation2, ImMobile, ImProfile, ImUser,
 } from 'react-icons/im';
 
 import Image from 'next/image';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Avatar from '../public/images/avatar.webp';
 import Footer from './footer';
 import Logo from '../public/images/logo.png';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+  const { pathname } = router;
+
   return (
     <div className="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
       <div className="section-bg">
@@ -65,6 +69,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
                   <ImLinkedin className="socialbtn text-[#0072b1]" />
                 </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                  <ImGithub className="socialbtn text-[#4078c0]" />
+                </a>
               </div>
 
               <div className="p-7 rounded-2xl mt-7 bg-[#F3F6F6] dark:bg-[#1D1D1D]">
@@ -113,30 +120,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <nav className="hidden lg:block">
               <ul className="flex">
                 <li>
-                  <a className="menu-item" href="./aboutOne.html">
+                  <Link className={`${pathname === '/' ? 'menu-active' : 'menu-item'}`} href="/">
                     <ImUser className="text-xl mb-1" />
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="menu-item" href="./resumeOne.html">
+                  <Link className={`${pathname === '/resume' ? 'menu-active' : 'menu-item'}`} href="/resume">
                     <ImProfile className="text-xl mb-1" />
                     Resume
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="menu-active" href="./portfiloOne.html">
+                  <Link className={`${pathname === '/portfolio' ? 'menu-active' : 'menu-item'}`} href="/portfolio">
                     <ImBriefcase className="text-xl mb-1" />
                     Works
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a className="menu-item" href="./contactOne.html">
+                  <Link className={`${pathname === '/contact' ? 'menu-active' : 'menu-item'}`} href="/contact">
                     <ImAddressBook className="text-xl mb-1" />
                     Contact
-                  </a>
-
+                  </Link>
                 </li>
               </ul>
             </nav>

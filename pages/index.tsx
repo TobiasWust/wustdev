@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section id="portfolio" className="bg-white   lg:rounded-2xl dark:bg-[#111111]">
+    <section id="portfolio" className="bg-white lg:rounded-2xl dark:bg-[#111111]">
       <div className="container  mb-8 px-4 sm:px-5 md:px-10 lg:px-[60px]">
         <div className="py-12 ">
           <h2 className="after-effect after:left-48 lg:mt-0">Headline</h2>
