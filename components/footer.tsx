@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer>
+    <footer className="bg-red-300">
       <p>Footer</p>
     </footer>
   );
